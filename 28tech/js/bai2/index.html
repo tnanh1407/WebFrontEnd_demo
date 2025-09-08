@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="list-user" id="list-user">
+      <!-- <div class="product-item"></div> -->
+    </div>
+    <script>
+      // VÍ DỤ 1
+      // var a = 10;
+      // var promise = new Promise((resolve, reject) => {
+      //   if (a != undefined && a !== null && a !== "") {
+      //     resolve(a);
+      //   } else {
+      //     reject(a);
+      //   }
+      // });
+
+      // promise
+      //   .then((value) => {
+      //     console.log(value);
+      //     return value;
+      //   })
+      //   .then((value) => {
+      //     const add = 10;
+      //     console.log(value + add);
+      //     return value + add;
+      //   })
+      //   .then((value) => {
+      //     const add = 30;
+      //     console.log(value + add);
+      //     return value + add;
+      //   })
+      //   .catch((error) => {
+      //     console.log("Lỗi : ", error);
+      //   })
+      //   .finally((error) => {
+      //     console.log("Luôn chạy vào đây !");
+      //   });
+
+      // VÍ DỤ 2
+      // const promise = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve();
+      //   }, 3000);
+      // });
+
+      // console.log(promise);
+      // setTimeout(() => {
+      //   console.log(promise);
+      // }, 1000);
+      // setTimeout(() => {
+      //   console.log(promise);
+      // }, 2000);
+      // setTimeout(() => {
+      //   console.log(promise);
+      // }, 3000);
+
+      // VÍ DỤ 3 :
+      // a = 10;
+      // b = 20;
+      // c = 30;
+      // d = 40;
+      // e = 50;
+      // f = 60;
+
+      // let sum1 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve(a + b);
+      //   }, 1000);
+      // });
+
+      // let sum2 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve(c + d);
+      //   }, 2000);
+      // });
+
+      // let sum3 = new Promise((resolve, reject) => {
+      //   setTimeout(() => {
+      //     resolve(e + f);
+      //   }, 3000);
+      // });
+
+      // Promise.all([sum1, sum2.sum3])
+      //   .then(([sum1, sum2, sum3]) => {
+      //     let sum = sum1 + sum2 + sum3;
+      //     console.log(sum);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   })
+      //   .finally(() => {
+      //     console.log("Auto return finally ");
+      //   });
+
+      fetch("https://dummyjson.com/products/category-list")
+        .then((response) => response.json())
+        .then((data) => {
+          let htmls = "";
+          data.forEach((element) => {
+            htmls += `<div class="product-item">${element}</div>`;
+          });
+          console.log(htmls);
+          userList = document.querySelector("#list-user");
+          userList.innerHTML = htmls;
+        });
+    </script>
+  </body>
+</html>
